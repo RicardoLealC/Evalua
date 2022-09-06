@@ -1,0 +1,17 @@
+Primer constructor
+Archivo: prueba.cpp
+05/09/2022 09:50:50 a. m.
+
+= = 3 5 + 8 * 10 4 - 2 / - = 61
+resultado : Float
+
+a : Int
+
+opcion : Char
+
+radio : Float
+
+altura : Float
+
+x : Float
+
