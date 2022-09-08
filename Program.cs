@@ -13,20 +13,11 @@ namespace Evalua
 
                 a.Programa();
 
-
-                
-                /*a.match("#");
-                a.match("include");
-                a.match("<");
-                a.match(Token.Tipos.Identificador);
-                a.match(".");
-                a.match("h");
-                a.match(">"); */
-                
                 //while(!a.FinArchivo())
                 //{
                   //  a.NextToken();
                 //}
+
                 a.cerrar();
             }
             catch (Exception)

@@ -168,7 +168,7 @@ namespace Evalua
         }
         private int columna(char c)
         {
-            //WS,EF,EL,L, D, .,	E, +, -, =,	:, ;, &, |,	!, >, <, *,	%, /, ", ?,La
+            //WS,EF,EL,L, D, .,	E, +, -, =,	:, ;, &, |,	!, >, <, *,	%, /, ", ?,La, \
             if(FinArchivo())
             {
                 return 1;
@@ -273,7 +273,6 @@ namespace Evalua
             string buffer = "";           
             char c;      
             int estado = 0;
-
             while(estado >= 0)
             {
                 c = (char)archivo.Peek(); //Funcion de transicion
@@ -282,10 +281,6 @@ namespace Evalua
                 if (estado >= 0)
                 {
                     archivo.Read();
-                    if(c == '\n')
-                    {
-                        linea++;
-                    }
                     if (estado >0)
                     {
                         buffer += c;
