@@ -195,7 +195,9 @@ namespace Evalua
             match(Tipos.Identificador);
             string nombre = getContenido();
             if(!existeVariable(getContenido()))
-            throw new Error("Error: Variable inexistente " + getContenido() + "Encontrada en Linea: " + linea, log);
+            {
+                throw new Error("Error: Variable inexistente " + getContenido() + "Encontrada en Linea: " + linea, log);
+            }
             match(Tipos.Identificador); 
             log.WriteLine();
             log.Write(getContenido() + " = ");
@@ -268,6 +270,10 @@ namespace Evalua
         {
             string Variable = getContenido();
             //Requerimiento 2 sino existe la variable levantar excepcion
+            if(!existeVariable(getContenido()))
+            {
+                throw new Error("Error: Variable inexistente " + getContenido() + "Encontrada en Linea: " + linea, log);
+            }
             match(Tipos.Identificador);
             if(getContenido() == "+")
             {
@@ -394,8 +400,13 @@ namespace Evalua
             match(",");
             match("&");
             //Requerimiento 2.- Si no existe la variable levanta la excepcion
+            if(!existeVariable(getContenido()))
+            {
+                throw new Error("Error: Variable inexistente " + getContenido() + "Encontrada en Linea: " + linea, log);
+            }
             string val = ""+Console.ReadLine();
             //Requerimiento 5.- Modificar el valor de la variable
+            modVariable(getContenido(), float.Parse(val));
             match(Tipos.Identificador);
             match(")");
             match(";");
@@ -479,6 +490,10 @@ namespace Evalua
             else if (getClasificacion() == Tipos.Identificador)
             {
                 //Requerimiento 2 sino existe la variable levantar excepcion
+                if(!existeVariable(getContenido()))
+                {
+                    throw new Error("Error: Variable inexistente " + getContenido() + "Encontrada en Linea: " + linea, log);
+                }
                 log.Write(getContenido() + " " );
                 stack.Push(getValor(getContenido()));
                 match(Tipos.Identificador);
