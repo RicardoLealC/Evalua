@@ -379,6 +379,9 @@ namespace Evalua
             if (getClasificacion() == Tipos.Cadena) 
             {
                 //Requerimiento 1.- Aqui se eliminan las comillas del resultado
+                getContenido().Trim('\"');
+                setContenido(getContenido().Replace("\\n", "\n"));
+                setContenido(getContenido().Replace("\\t", "\t"));
                 Console.Write(getContenido());
                 match(Tipos.Cadena);
             }
