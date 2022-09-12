@@ -190,12 +190,15 @@ namespace Evalua
 
         //Asignacion -> identificador = cadena | Expresion;
         private void Asignacion()
-        {
-            match(Tipos.Identificador); 
+        {   
             //Requerimiento 2 sino existe la variable levantar excepcion
+            match(Tipos.Identificador);
+            string nombre = getContenido();
+            if(!existeVariable(getContenido()))
+            throw new Error("Error: Variable inexistente " + getContenido() + "Encontrada en Linea: " + linea, log);
+            match(Tipos.Identificador); 
             log.WriteLine();
             log.Write(getContenido() + " = ");
-            string nombre = getContenido(); 
             match(Tipos.Asignacion);
             Expresion();
             match(";");
